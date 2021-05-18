@@ -240,7 +240,7 @@ RCT_EXPORT_METHOD(peerConnectionTransceiverStop:(nonnull NSNumber *)objectID
    }
    for (RTCRtpTransceiver *transceiver in peerConnection.transceivers) {
        if ([transceiver.sender.senderId isEqualToString:transceiverId]) {
-           [transceiver stop];
+           [transceiver stopInternal];
        }
    }
     id response = @{
