@@ -19,6 +19,7 @@
 #import <WebRTC/RTCIceCandidate.h>
 #import <WebRTC/RTCSessionDescription.h>
 #import <WebRTC/RTCRtpTransceiver.h>
+#import <WebRTC/RTCLegacyStatsReport.h>
 #import <WebRTC/RTCStatisticsReport.h>
 
 #import "WebRTCModule.h"
