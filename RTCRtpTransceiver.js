@@ -45,21 +45,6 @@ export default class RTCRtpTransceiver {
         return this._direction;
     }
 
-    set direction(val) {
-        if (this._stopped) {
-            throw Error('Transceiver Stopped');
-        }
-        this._direction = val;
-
-        WebRTCModule.peerConnectionTransceiverSetDirection(this._peerConnectionId, this.id, val, (successful, data) => {
-            if (successful) {
-                this._mergeState(data.state);
-            } else {
-                console.warn("Unable to set direction: " + data);
-            }
-        });
-    }
-
     get currentDirection() {
         return this._currentDirection;
     }

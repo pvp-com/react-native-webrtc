@@ -187,26 +187,6 @@ RCT_EXPORT_METHOD(peerConnectionAddTransceiver:(nonnull NSNumber *)objectID
     callback(@[@(YES), response]);
 }
 
-RCT_EXPORT_METHOD(peerConnectionTransceiverSetDirection:(nonnull NSNumber *)objectID
-                                  transceiverId:(NSString *)transceiverId
-                                      direction: (NSString* )direction
-                                       callback:(RCTResponseSenderBlock)callback) {
-   RTCPeerConnection *peerConnection = self.peerConnections[objectID];
-   if (!peerConnection) {
-     return;
-   }
-   for (RTCRtpTransceiver *transceiver in peerConnection.transceivers) {
-       if ([transceiver.sender.senderId isEqualToString:transceiverId]) {
-           [transceiver setDirection:[self parseDirection:direction]];
-       }
-   }
-    id response = @{
-      @"id": transceiverId,
-      @"state": [self extractPeerConnectionState: peerConnection]
-    };
-    callback(@[@(YES), response]);
-}
-
 RCT_EXPORT_METHOD(peerConnectionTransceiverReplaceTrack:(nonnull NSNumber *)objectID
                                   transceiverId:(NSString *)transceiverId
                                         trackId: (NSString* )trackId

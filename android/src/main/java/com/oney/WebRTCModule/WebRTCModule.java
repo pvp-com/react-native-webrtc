@@ -1291,32 +1291,4 @@ public class WebRTCModule extends ReactContextBaseJavaModule {
             callback.invoke(false, "peerConnection is null");
         }
     }
-
-    @ReactMethod
-    public void peerConnectionTransceiverSetDirection(int id,
-                                                      String transceiverId,
-                                                      String direction,
-                                                      final Callback callback) {
-        ThreadUtils.runOnExecutor(() ->
-                this.peerConnectionTransceiverSetDirectionAsync(id, transceiverId, direction, callback));
-    }
-
-    private void peerConnectionTransceiverSetDirectionAsync(int id,
-                                                            String transceiverId,
-                                                            String direction,
-                                                            final Callback callback) {
-        PeerConnectionObserver pco = mPeerConnectionObservers.get(id);
-        if (pco != null) {
-            RtpTransceiver transceiver = pco.getTransceiver(transceiverId);
-            transceiver.setDirection(this.parseDirection(direction));
-
-            WritableMap res = Arguments.createMap();
-            res.putString("id", transceiverId);
-            res.putMap("state", this.serializeState(id));
-            callback.invoke(true, res);
-        } else {
-            Log.d(TAG, "peerConnectionTransceiverSetDirection() peerConnection is null");
-            callback.invoke(false, "peerConnection is null");
-        }
-    }
 }
