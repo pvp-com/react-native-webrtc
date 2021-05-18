@@ -14,6 +14,8 @@
     int _fps;
 }
 
+@dynamic frameRate;
+
 -(instancetype)initWithCapturer:(RTCCameraVideoCapturer *)capturer
                  andConstraints:(NSDictionary *)constraints {
     self = [super init];
@@ -73,11 +75,13 @@
         = [self selectFormatForDevice:device
                       withTargetWidth:_width
                      withTargetHeight:_height];
-    if (!format) {
+    if (format == nil) {
         RCTLogWarn(@"[VideoCaptureController] No valid formats for device %@", device);
 
         return;
     }
+
+    _selectedFormat = format;
 
     RCTLog(@"[VideoCaptureController] Capture will start");
 
@@ -116,8 +120,13 @@
 
 -(void)switchCamera {
     _usingFrontCamera = !_usingFrontCamera;
+    _deviceId = NULL;
 
     [self startCapture];
+}
+
+-(int)frameRate {
+    return _fps;
 }
 
 #pragma mark Private
