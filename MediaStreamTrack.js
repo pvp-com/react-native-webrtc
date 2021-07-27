@@ -54,6 +54,14 @@ class MediaStreamTrack extends EventTarget(MEDIA_STREAM_TRACK_EVENTS) {
                     || _readyState === "live") ? "live" : "ended";
   }
 
+  mute(): void {
+    WebRTCModule.mediaStreamTrackSetEnabled(this.id, false);
+  }
+
+  unmute(): void {
+    WebRTCModule.mediaStreamTrackSetEnabled(this.id, true);
+  }
+
   get enabled(): boolean {
     return this._enabled;
   }
