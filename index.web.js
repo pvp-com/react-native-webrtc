@@ -17,6 +17,9 @@ const {
   RTCPeerConnection,
   RTCIceCandidate,
   RTCSessionDescription,
+  RTCRtpTransceiver,
+  RTCRtpReceiver,
+  RTCRtpSender,
   MediaStream,
   MediaStreamTrack,
 } = window;
@@ -31,6 +34,9 @@ const registerGlobals = () => {
 export {
   RTCIceCandidate,
   RTCSessionDescription,
+  RTCRtpTransceiver,
+  RTCRtpReceiver,
+  RTCRtpSender,
   MediaStreamTrack,
   mediaDevices,
   permissions,
