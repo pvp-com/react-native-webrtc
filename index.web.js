@@ -7,7 +7,7 @@ import RTCSessionDescription from "./RTCSessionDescription";
 import RTCRtpTransceiver from "./RTCRtpTransceiver";
 import RTCRtpSender from "./RTCRtpSender";
 import RTCRtpReceiver from "./RTCRtpReceiver";
-// import RTCView from "./RTCView";
+import RTCView from "./RTCView";
 import MediaStream from "./MediaStream";
 import MediaStreamTrack from "./MediaStreamTrack";
 import mediaDevices from "./MediaDevices";
@@ -21,7 +21,7 @@ export {
   RTCRtpTransceiver,
   RTCRtpReceiver,
   RTCRtpSender,
-//   RTCView,
+  RTCView,
   MediaStream,
   MediaStreamTrack,
   mediaDevices,
