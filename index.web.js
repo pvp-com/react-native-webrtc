@@ -1,4 +1,4 @@
-// import RTCView from "./RTCView";
+import RTCView from "./RTCView";
 
 // add 'release' method to the MediaStream prototype matching React Native's MediaStream release()
 window.MediaStream.prototype.release = function release() {
@@ -34,7 +34,7 @@ export {
   registerGlobals,
   RTCPeerConnection,
   MediaStream,
-//   RTCView,
+  RTCView,
 };
 
 // "use strict";
