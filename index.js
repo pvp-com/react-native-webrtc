@@ -1,6 +1,6 @@
 'use strict';
 
-import ScreenCapturePickerView from './ScreenCapturePickerView';
+// import ScreenCapturePickerView from './ScreenCapturePickerView';
 import RTCPeerConnection from './RTCPeerConnection';
 import RTCIceCandidate from './RTCIceCandidate';
 import RTCSessionDescription from './RTCSessionDescription';
@@ -14,7 +14,7 @@ import mediaDevices from './MediaDevices';
 import permissions from './Permissions';
 
 export {
-  ScreenCapturePickerView,
+//   ScreenCapturePickerView,
   RTCPeerConnection,
   RTCIceCandidate,
   RTCSessionDescription,
